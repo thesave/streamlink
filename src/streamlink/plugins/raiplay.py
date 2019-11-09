@@ -9,7 +9,7 @@ from streamlink.stream import HLSStream
 
 class RaiPlay(Plugin):
     url_re = re.compile(r"https?://(?:www\.)?raiplay\.it/dirette/(\w+)/?")
-    stream_re = re.compile(r"data-video-url.*?=.*?\"([^\"]+)\"")
+    stream_re = re.compile(r'content_url.*?:.*?\"([^\"]+)\"')
     stream_schema = validate.Schema(
         validate.all(
             validate.transform(stream_re.search),
